@@ -2,11 +2,17 @@
 <head>
 <title>
 </title>
-  
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 
 </head>
 <body>
-<div id="fb-root"></div>
+<!-- <div id="fb-root"></div>
   <button id = "shareBtn"> FBshare </button>
 <script>
     window.fbAsyncInit = function() {
@@ -53,6 +59,24 @@ function(response) {
 );
 }
         </script>
+ -->
+  <p>Click the button below to trigger a Share Dialog</p>
 
+<div id="shareBtn" class="btn btn-success clearfix">Share</div>
+
+<p style="margin-top: 50px">
+  <hr />
+  <a class="btn btn-small"  href="https://developers.facebook.com/docs/sharing/reference/share-dialog">Share Dialog Documentation</a>
+</p>
+
+<script>
+document.getElementById('shareBtn').onclick = function() {
+  FB.ui({
+    method: 'share',
+    display: 'popup',
+    href: 'https://developers.facebook.com/docs/',
+  }, function(response){});
+}
+</script>
 </body>
 </html>
