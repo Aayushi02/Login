@@ -7,7 +7,8 @@
 </head>
 <body>
 <div id="fb-root"></div>
-<div class="fb-like" data-href=" My URL " data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+  <button id = "shareBtn"> FBshare </button>
+  <div class="fb-like" data-href=" My URL " data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
 <script>
     window.fbAsyncInit = function() {
     FB.init({
@@ -33,7 +34,25 @@
     js.src = "//connect.facebook.net/en_US/all.js";
     d.getElementsByTagName('head')[0].appendChild(js);
 }(document));
-
+document.getElementById('shareBtn').onclick = function() {
+  FB.ui(
+{
+  method: 'feed',
+  name: 'Facebook Dialogs',
+  link: 'https://developers.facebook.com/docs/dialogs/',
+  picture: 'http://fbrell.com/f8.jpg',
+  caption: 'Reference Documentation',
+  description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'
+},
+function(response) {
+  if (response && response.post_id) {
+    alert('Post was published.');
+  } else {
+    alert('Post was not published.');
+  }
+}
+);
+}
         </script>
 
 </body>
