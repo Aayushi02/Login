@@ -99,7 +99,14 @@ document.getElementById('shareBtn').onclick = function() {
     method: 'share',
     display: 'popup',
     href: 'https://developers.facebook.com/docs/',
-  }, function(response){});
+  }, function(response) {
+  if (response && response.post_id) {
+    alert('Post was published.');
+  } else {
+    alert('Post was not published.');
+  }
+}
+);
 }
 </script>
 </body>
