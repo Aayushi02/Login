@@ -32,20 +32,6 @@ function checkLoginState() {
     statusChangeCallback(response);
   });
 }
-  FB.ui(
-  {
-    method: 'share',
-    href: 'https://developers.facebook.com/docs/',
-  },
-  // callback
-  function(response) {
-    if (response && !response.error_message) {
-      alert('Posting completed.');
-    } else {
-      alert('Error while posting.');
-    }
-  }
-);
 
 </script>
 </head>
@@ -54,6 +40,22 @@ function checkLoginState() {
   scope="public_profile,email"
   onlogin="checkLoginState();"> button
 </fb:login-button>
-  <button onclick="FB.ui"> fbbutton </button>
+ <div id="shareBtn" class="btn btn-success clearfix">Share</div>
+<script>
+document.getElementById('shareBtn').onclick = function() {
+  FB.ui({
+    method: 'share',
+    display: 'popup',
+    href: 'https://developers.facebook.com/docs/',
+  }function(response) {
+  if (response && response.post_id) {
+    alert('Post was published.');
+  } else {
+    alert('Post was not published.');
+  }
+}
+);
+}
+</script>
 </body>
 </html>
