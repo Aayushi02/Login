@@ -18,9 +18,7 @@
       
   };
 
-FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-});
+
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
@@ -35,29 +33,26 @@ function checkLoginState() {
   });
 }
   FB.ui(
-{
-  method: 'feed',
-  name: 'Facebook Dialogs',
-  link: 'https://developers.facebook.com/docs/dialogs/',
-  picture: 'http://fbrell.com/f8.jpg',
-  caption: 'Reference Documentation',
-  description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'
-},
-function(response) {
-  if (response && response.post_id) {
-    alert('Post was published.');
-  } else {
-    alert('Post was not published.');
+  {
+    method: 'share',
+    href: 'https://developers.facebook.com/docs/',
+  },
+  // callback
+  function(response) {
+    if (response && !response.error_message) {
+      alert('Posting completed.');
+    } else {
+      alert('Error while posting.');
+    }
   }
-}
 );
-</script>
+
 </script>
 </head>
 <body>
 <fb:login-button 
   scope="public_profile,email"
-  onlogin="checkLoginState();">
+  onlogin="checkLoginState();"> button
 </fb:login-button>
 <p> shddjkflkd </p?
 </body>
