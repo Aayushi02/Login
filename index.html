@@ -4,9 +4,11 @@
 </title>
 
 <script>
+  
+<script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '760924310940272',
+      appId      : '1952560841531863',
       cookie     : true,
       xfbml      : true,
       version    : 'v3.2'
@@ -19,7 +21,6 @@
 FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
 });
-
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
@@ -27,11 +28,7 @@ FB.getLoginStatus(function(response) {
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-function checkLoginState() {
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-}
+</script>
 </script>
 </head>
 <body>
