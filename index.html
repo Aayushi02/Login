@@ -8,8 +8,7 @@
 <div id="fb-root"></div>
   <button id = "shareBtn"> FBshare </button>
  <br>
- <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-url="http://codingclub.tech/algo" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
- <br>
+ 
  <div id="fb-root"></div>
   <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -57,22 +56,59 @@
     js.src = "//connect.facebook.net/en_US/all.js";
     d.getElementsByTagName('head')[0].appendChild(js);
 }(document));
-document.getElementById('shareBtn').onclick = function() {
-  FB.ui(
-{
-  method: 'share',
-  display: 'popup',
-  href: 'https://developers.facebook.com/docs/',
-},
-function(response) {
-  if (response && response.post_id) {
-    alert('Post was published.');
-  } else {
-    alert('Post was not published.');
-  }
-}
-);
-} 
+// document.getElementById('shareBtn').onclick = function() {
+//   FB.ui(
+// {
+//   method: 'share',
+//   display: 'popup',
+//   href: 'https://developers.facebook.com/docs/',
+// },
+// function(response) {
+//   if (response && response.post_id) {
+//     alert('Post was published.');
+//   } else {
+//     alert('Post was not published.');
+//   }
+// }
+// );
+// } 
+  var tweetUrlBuilder = function(o){
+    return [
+        'https://twitter.com/intent/tweet?tw_p=tweetbutton',
+        '&url=', encodeURI(o.url),
+        '&via=', o.via,
+        '&text=', o.text
+    ].join('');
+};
+
+$('.sharebtn').on('click', function(){
+    var url = tweetUrlBuilder({
+        url : 'http://bit.ly/OChT65',
+        via : 'ProJavaScript',
+        text: 'How to make a custom share tweet button and know when the user tweeted'
+    });
+    window.open(url, 'Tweet', 'height=500,width=700');
+})
+
+// Called by the Twitter, many times during it's
+// life-cycle. We only want to know when the user
+// has tweeted, so the following filters are required.
+var callback = function(e){
+    if(e && e.data){
+        var data;
+        try{
+            data = JSON.parse(e.data);
+        }catch(e){
+            // Don't care.
+        }
+        if(data && data.params && data.params.indexOf('tweet') > -1){
+            alert('Thanks for the tweet!');
+        }
+    }
+};
+
+window.addEventListener ? window.addEventListener("message", callback, !1) : window.attachEvent("onmessage", callback)
+
  </script> 
 
 
