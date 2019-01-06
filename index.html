@@ -94,7 +94,10 @@
   background: #bb0000;
   color: white;
 }
-
+ .fa-facebook {
+  background: #3B5998;
+  color: white;
+}
 .
 
 
@@ -342,7 +345,7 @@
                                      <a href="#" class="fa fa-youtube"></a>
 
                                 </div>
-
+                      <button id='shareBtn' class="fa fa-facebook"> button </button>
                                 <div class="col-sm-6 col-xs-12 pb--30" style="position: absolute; left: 390px; top: 0px;">
                                 <iframe width="100%" height="300" src="https://www.youtube.com/embed/inR_O_2Apm0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -946,7 +949,7 @@
     d.getElementsByTagName('head')[0].appendChild(js);
 }(document));
    var s1 = 'https://www.facebook.com/AAPDelhi/videos/2179054122336845/';
- document.getElementById('fb1').onclick = function() {
+ document.getElementById('shareBtn').onclick = function() {
   FB.ui(
  {
   method: 'share',
