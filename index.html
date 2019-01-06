@@ -927,8 +927,9 @@
 
     <!-- ==== Main Script ==== -->
 <!--     <script ></script> -->
-    <script src="main.js">
-         window.fbAsyncInit = function() {
+    <script>
+
+     window.fbAsyncInit = function() {
     FB.init({
         appId: '760924310940272',
         status: true,
@@ -938,131 +939,77 @@
     });
     FB.Event.subscribe('edge.create', function(response) {
         alert('You liked the URL: ' + response);
-      });
-};
-(function(d) {
-    var js, id = 'facebook-jssdk';
-    if (d.getElementById(id)) {
-        return;
-    }
-    js = d.createElement('script');
-    js.id = id;
-    js.async = true;
-    js.src = "//connect.facebook.net/en_US/all.js";
-    d.getElementsByTagName('head')[0].appendChild(js);
-}(document, 'script', 'facebook-jssdk'));
-   var s = 'https://www.facebook.com/AAPDelhi/videos/2179054122336845/?t=0'
-   document.getElementById('shareBtn').onclick = function() {
+ElementsByTagName('head')[0].appendChild(js);
+}(document,'script', 'facebook-jssdk'));
+   var s1 = 'https://www.facebook.com/AAPDelhi/videos/2179054122336845/';
+ document.getElementById('shareBtn').onclick = function() {
   FB.ui(
  {
   method: 'share',
   display: 'popup',
-  href: s
+  href: 'https://www.facebook.com/AAPDelhi/videos/2179054122336845/'
  },
 function(response) {
-  if (response && response.post_id) {
-    alert('Post was published.');
-  } else {
-    alert('Post was not published');
-  }
-}
- );
+   if (response && response.post_id) {
+     alert('Post was published.');
+   } else {
+     alert('Post was not published');
    }
- 
- </script> 
+ }
+  );
+  } 
+  var s2 = 'https://youtu.be/inR_O_2Apm0';
+  document.getElementById('fb4').onclick = function() {
+   FB.ui(
+  {
+   method: 'share',
+   display: 'popup',
+   href: s2
+  },
+ function(response) {
+   if (response && response.post_id) {
+    alert('Post was published.');
+   } else {
+     alert('Post was not published');
+   }
+ }
+  var s3 = 'https://twitter.com/AAPGovt4Delhi/status/1081218305287802881';
+  document.getElementById('fb2').onclick = function() {
+   FB.ui(
+  {
+   method: 'share',
+   display: 'popup',
+  href: s3
+  },
+ function(response) {
+   if (response && response.post_id) {
+     alert('Post was published.');
+ } else {
+     alert('Post was not published');
+   }
+ }
+  );
+ } 
 
-//      window.fbAsyncInit = function() {
-//     FB.init({
-//         appId: '760924310940272',
-//         status: true,
-//         cookie: true,
-//         xfbml: true,
-//         oauth: true
-//     });
-//     FB.Event.subscribe('edge.create', function(response) {
-//         alert('You liked the URL: ' + response);
-//       });
-// };
-// (function(d) {
-//     var js, id = 'facebook-jssdk';
-//     if (d.getElementById(id)) {
-//         return;
-//     }
-//     js = d.createElement('script');
-//     js.id = id;
-//     js.async = true;
-//     js.src = "//connect.facebook.net/en_US/all.js";
-//     d.getElementsByTagName('head')[0].appendChild(js);
-// }(document));
-//    var s1 = 'https://www.facebook.com/AAPDelhi/videos/2179054122336845/';
-//  document.getElementById('shareBtn').onclick = function() {
-//   FB.ui(
-//  {
-//   method: 'share',
-//   display: 'popup',
-//   href: 'https://www.facebook.com/AAPDelhi/videos/2179054122336845/'
-//  },
-// function(response) {
-//   if (response && response.post_id) {
-//     alert('Post was published.');
-//   } else {
-//     alert('Post was not published');
-//   }
-// }
-//  );
-//  } 
-//  var s2 = 'https://youtu.be/inR_O_2Apm0';
-//  document.getElementById('fb4').onclick = function() {
-//   FB.ui(
-//  {
-//   method: 'share',
-//   display: 'popup',
-//   href: s2
-//  },
-// function(response) {
-//   if (response && response.post_id) {
-//     alert('Post was published.');
-//   } else {
-//     alert('Post was not published');
-//   }
-// }
-//  var s3 = 'https://twitter.com/AAPGovt4Delhi/status/1081218305287802881';
-//  document.getElementById('fb2').onclick = function() {
-//   FB.ui(
-//  {
-//   method: 'share',
-//   display: 'popup',
-//   href: s3
-//  },
-// function(response) {
-//   if (response && response.post_id) {
-//     alert('Post was published.');
-//   } else {
-//     alert('Post was not published');
-//   }
-// }
-//  );
-//  } 
-
-//  var s4 = 'https://youtu.be/dCjvuJ_fR1U';
-//  document.getElementById('fb3').onclick = function() {
-//   FB.ui(
-//  {
-//   method: 'share',
-//   display: 'popup',
-//   href: s4
-//  },
-// function(response) {
-//   if (response && response.post_id) {
-//     alert('Post was published.');
-//   } else {
-//     alert('Post was not published');
-//   }
-// }
-//  );
-//  } 
+  var s4 = 'https://youtu.be/dCjvuJ_fR1U';
+  document.getElementById('fb3').onclick = function() {
+   FB.ui(
+ {
+   method: 'share',
+   display: 'popup',
+   href: s4
+  },
+ function(response) {
+  if (response && response.post_id) {
+     alert('Post was published.');
+   } else {
+     alert('Post was not published');
+   }
+ }
+  );
+  } 
 
 
-//     </script>
+   </script>
 
 </body></html>
